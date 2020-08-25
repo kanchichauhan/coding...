@@ -1,0 +1,610 @@
+<DOCTYPE html>
+<html>
+<head>
+<title>the road</title>
+<style>
+	*
+	{
+		margin:0;
+		padding:0;
+		font-family:serif;
+		list-style-type:none;
+		text-decoration:none;
+		box-sizing:border-box;
+		outline:none;
+	}
+	:root{
+		--primary-color:#2b81e4;
+		--secondary-color:#eee;
+		--white-color:#fff;
+		--grey-color:#555;
+		--light-grey-color:#777;
+		}
+	.center{
+		display:flex;
+		justify-content:center;
+		align-items:center;
+	}
+	.container{
+		background-color:var(--secondary-color);
+		margin:1.5rem;
+		box-shadow:5px 10px 18px blue;
+		overflow:hidden;
+	}
+	.header{
+		width:100%;
+		height:calc(100vh-7rem);
+		background					:linear-gradient(rgba(18,113,255,0.5),rgba(18,113,255,0.3)),url(city.jpg)center no-repeat;
+		background-size:cover;
+		position:relative;
+		perspective:100px;
+	}
+	.header-text{
+		font-weight:900;
+		text-align:center;
+		text-transform:uppercase;
+		letter-spacing:.1rem;
+	}
+	.heading{
+		font-size:35px;
+		color:"black";
+	}
+	.header-para
+	{
+		font-size:25px;
+		font-weight:900;
+		color:white;
+		max-width:60rem;
+		margin:auto;
+	}
+	.logo{
+		position:absolute;
+		top:1.5rem;
+		right:1rem;
+	}
+	.logo h1{
+		display:flex;
+	}
+	.logo h1 span{
+		font-size:12px;
+		font-weight:700;
+		color:var(--primary-color);
+		text-transform:uppercase;
+		background-color:var(--white-color);
+		width:20px;
+		height:20px;
+		margin:3px;
+		border-radius:50%;
+	}
+	.logo h1 span:nth-child(1){
+		animation-name:drop-letters;
+		animation-duration:5s;
+		animation-delay:0.1s;
+		animation-iteration-count:infinite;
+	}
+	.logo h1 span:nth-child(2){
+		animation-name:drop-letters;
+		animation-duration:5s;
+		animation-delay:0.2s;
+		animation-iteration-count:infinite;
+	}
+
+	.logo h1 span:nth-child(3){
+		animation-name:drop-letters;
+		animation-duration:5s;
+		animation-delay:0.3s;
+		animation-iteration-count:infinite;
+	}
+	.logo h1 span:nth-child(4){
+		animation-name:drop-letters;
+		animation-duration:5s;
+		animation-delay:0.4s;
+		animation-iteration-count:infinite;
+	}
+	.logo h1 span:nth-child(5){
+		animation-name:drop-letters;
+		animation-duration:5s;
+		animation-delay:0.5s;
+		animation-iteration-count:infinite;
+	}
+	.logo h1 span:nth-child(6){
+		animation-name:drop-letters;
+		animation-duration:5s;
+		animation-delay:0.6s;
+		animation-iteration-count:infinite;
+	}
+	.logo h1 span:nth-child(7){
+		animation-name:drop-letters;
+		animation-duration:8s;
+		animation-delay:0.7s;
+		animation-iteration-count:infinite;
+	}
+
+
+	@keyframes drop-letters{
+	0%{
+		transform:translateY(0);
+	}
+	10%{
+		transform:translateY(0);
+	}
+	15%{
+		transform:translateY(-100%);
+	}
+	20%{
+		transform:translateY(0);
+	}
+	100%{
+		transform:translateY(0);
+	}
+}
+	.header-image{
+		width:60%;
+		height:90%;
+		animation:image-float 30s infinite;
+	}
+	
+	@keyframes image-float{
+	0%{                                   
+		transform:translateZ(300px);
+		opacity:1;
+	}
+	40%
+	{
+		transform:translateZ(-500px)
+		translateX(150px);
+		opacity:0.8;
+	}
+	40%
+	{
+		transform:translateZ(-800px)
+		translateX(150px);
+		opacity:0.8;
+	}
+	70%
+	{
+		transform:translateZ(-1500px)
+		translateX(800px);
+		opacity:0.6;
+	}
+	80%
+	{
+		transform:translateZ(-50px)
+		translateX(100px);
+		opacity:0.8;
+	}
+	100%
+	{
+		transform:translateZ(20px);
+
+	}
+}	
+.popular-tours{
+		padding:10px 20px;
+	}	
+.pop-tour-head{
+	box-shadow:5px 10px 10px 10px #87CEEB;
+	margin:40px;
+	text-align:center;
+	font-size:30px;
+	color:MediumSeaGreen;
+	top:60%;
+	left:50%;
+	padding:5px 20px;
+	}
+.cards-wrapper{
+	display:flex;
+	justify-content:space-evenly;
+}
+.card{
+	width:300px;
+	position:relative;
+	perspective:-150px;
+}
+.card-image{
+	width:100%;
+	border-radius:0.3rem 0.3rem 0 0;	
+}
+.front-side{
+		text-align:center;
+		background-color:white;
+		border-radius:0.3rem;
+		position:relative;
+		z-index:10;
+		transition:opacity 0.4s,transform 0.4s,box-shadow 0.4s;
+	}
+.change>.front-side{
+		transform:translateZ(-5rem) translateX(5rem);
+		box-shadow:0.2rem 4rem #blue;
+		z-index:0;
+		opacity:1;
+}
+.tour-name{
+		font-size:25px;
+		font-weight:700;
+		text-transform:uppercase;
+		position:absolute;
+		top:30%;
+		right:1.5rem;
+		color:white;
+}
+.card-list{
+		width:80%;
+		margin:auto;
+		padding:2rem 0 3rem 0;
+	}
+.card-list-item{
+		font-size:20px;
+		font-weight:500;
+		color:grey;
+		margin:1rem 0;
+		border-bottom:0.1rem solid blue;
+		padding-bottom:1rem;
+	}
+.back-side{
+		position:absolute;
+		top:0;
+		background-color:#87d7eb;
+		width:100%;
+		height:100%;
+		border-radius:5%;
+		box-shadow:5px 10px 10px 10px #87ceeb;
+		transform:translateZ(5rem) translateX(2rem);
+		transition:opacity 0.4s,transform 0.4s,box-shadow 0.4s;	
+	}
+.change>.back-side{
+		transform:translateZ(0) translateX(0);
+		box-shadow:0.2rem 2rem blue;
+		z-index:0;
+}
+.tour-price{
+	font-size:25px;
+	font-weight:300;
+	color:white;
+	margin-bottom:100px;
+	
+}
+.card-button{
+	font-size:20px;
+	color:"grey";
+	background-color:"white";
+	border:none;
+	border-radius:10%;
+	cursor:pointer;
+	letter-spacing:5px;
+	padding:10px 10px;
+}
+.navigation-button{
+	position:absolute;
+	top:2px;
+	left:2px;
+	padding:13px;
+	background-color:white;
+	color:grey;
+	border-radius:10%;
+	border:none;
+	font-size:15px;
+	text-transform:uppercase;
+	cursor:pointer;
+}
+.stories{
+	padding:10rem 0;
+	position:relative;
+}
+.video-container{
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%
+	opacity:0.4;
+}
+.stories-wrapper{
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+}
+.story-bg{
+	background-color:#bbb;
+	padding:3rem;
+	margin:3rem;
+	box-shadow:5px 10px 18px grey;
+	transform:skewX(20deg);
+}
+.story{
+	transform:skewX(-20deg);
+	display:flex;
+}
+.story-image{
+	width:10rem;
+	height:10rem;
+	border-radius:50%;
+	margin-right:3rem;
+}
+.story-text{
+	letter-spacing:1px;
+}
+.story-heading{
+	font-size:20px;
+	text-transform:uppercase;
+	color:black;
+	margin-bottom:1rem;
+
+ }
+.story-para{
+	font-size:18px;
+}
+.story-para::first-letter{
+	margin-left:1rem;
+}
+.contact{
+	padding:15rem 0 20rem 0;
+	text-align:center;
+	background:url(tree.jpg);
+	center:no-repeat;
+	background-size:cover;
+	animation:contactbg 10s linear infinite;
+} 
+	0%{
+		background-color:red;
+	}
+	25%{
+		background-color:pink;
+	}
+	50%{
+		background-color:blue;
+	}
+	75%{
+		background-color:yellow;
+	}
+	100%{
+		background-color:red;
+	}
+}
+.contact-head{
+	text-align:center;
+	font-size:40px;
+	color:"white";
+	font-weight:700;
+	color:cyan;
+	margin-bottom:8rem;
+}
+.contact-form{
+	width:550px;
+	height:500px;
+	background-color:white;
+	margin:auto;
+	flex-direction:column;
+	border-radius:5%;
+	box-shadow:6px 10px 18px #666633;
+	opacity:0.9;
+}
+.input-group{
+	width:100%;
+	display:flex;
+	flex-direction:column;
+}
+.input-groups{
+
+	width:100%;
+	display:flex;
+	justify-content:space-between;	
+}
+.input-groups .input-group{
+	width:43.5%;
+}
+.input-group input,
+.input-group textarea{
+	padding:25px 25px 25px 25px;
+	background-color:#eee;
+	border:0.1rem solid var(--secondary-color);
+	font-size:1.4rem;
+	color:var(--light-grey-color);
+	letter-spacing:0.1rem;
+	border-radius:10%;
+	transition:border 0.3s;
+}
+.input-group label{
+	font-size:20px;
+	font-weight:600;
+	text-transform:uppercase;
+	letter spacing:10px;
+	color:black;
+}
+.form-btn{
+	width:100%;
+	padding:1rem;
+	font-size:1.6rem;
+	letter-spacing:10px;
+	margin-top:1rem;
+	background-color:grey;
+	color:white;
+	border:none;
+	transition:background-color:0.4s;	
+}
+.form-btn hover{
+	background-color:grey;
+}
+.input-group textarea{
+	max-height:15rem;
+	max-width:100%;
+}
+.footer{
+	background-color:var(--grey-color);
+	padding:4rem 0 2rem 0;
+}
+.footer-list{
+	display:flex;
+	justify-content:center;
+}
+.footer-link{
+	font-size:25px;
+	color:white;
+	margin:0.2rem;
+	background-color:grey;
+	padding:.3rem 2rem;
+	letter-spacing:0.3rem;
+}
+.footer-link:hover{
+	transform:rotate(-10deg);
+	box-shadow:6px 10px 18px #000;
+}
+.footer-paragraph{
+	text-align:center;
+	font-size:15px;
+	color:white;
+	letter-spacing:.2rem;
+	margin-top:5rem;
+}
+</style>
+</head>
+<body>
+	<div class="container">
+		<header class="header center">
+			<div class="header-text">
+				<h1 class="heading">Around the World</h1>
+				<p class="header-para">"traveling- it leaves you speechless, then turns you into a storyteller"</p>
+			</div>
+			<img src="balloons.png" alt="header image" height="580px" class="header-image"/>
+			<div class="logo">
+			<h1>
+			<span class="center">t</span>	
+			<span class="center">h</span>	
+			<span class="center">e</span>	
+			<span class="center">r</span>	
+			<span class="center">o</span>	
+			<span class="center">a</span>	
+			<span class="center">d</span>	
+			</h1>
+			</div>
+		</header>
+	<section class="popular-tours">
+		<h1 class="pop-tour-head">The most popular tours</h1>
+		<div class="cards-wrapper">
+			<div class="card">
+				<div class="front-side">
+					<img src="forest.jpg" alt="forest" class="card-image"/>
+					<h1 class="tour-name"> the wild forest</h1>
+					<ul class="card-list">
+						<li class="card-list-item">7 days tour</li>
+						<li class="card-list-item">upto 20 ppl</li>
+						<li class="card-list-item">4 tour guides</li>
+						<li class="card-list-item">sleep in private tents</li>
+						<li class="card-list-item">Difficulty : medium</li>
+					</ul>
+					<button class="navigation-button">price &gt;&gt;</button>
+				</div>
+				<div class="back-side center">
+					<button class="navigation-button">&lt;&lt;back</button>
+					<h3 class="tour-price">$399</h3>
+					<button class="card-button">Booking</button>
+					
+				</div>
+			</div>
+			<div class="card">
+				<div class="front-side">
+					<img src="river.jpg" alt="river" class="card-image"/>
+					<h1 class="tour-name"> Along the river</h1>
+					<ul class="card-list">
+						<li class="card-list-item">9 days tour</li>
+						<li class="card-list-item">upto 30 ppl</li>
+						<li class="card-list-item">7 tour guides</li>
+						<li class="card-list-item">sleep in private tents</li>
+						<li class="card-list-item">Difficulty : hard</li>
+					</ul>
+					<button class="navigation-button">price &gt;&gt;</button>
+				</div>
+				<div class="back-side center">
+					<button class="navigation-button">&lt;&lt;back</button>
+					<h3 class="tour-price"> $499</h3>
+					<button class="card-button">Booking</button>	
+				</div>
+			</div>
+			<div class="card">
+				<div class="front-side">
+					<img src="sea.jpg" alt="sea.jpg" class="card-image"/>
+					<h1 class="tour-name"> the island beach</h1>
+					<ul class="card-list">
+						<li class="card-list-item">5 days tour</li>
+						<li class="card-list-item">upto 40 ppl</li>
+						<li class="card-list-item">8 tour guides</li>
+						<li class="card-list-item">sleep in hotel</li>
+						<li class="card-list-item">Difficulty : easy</li>
+					</ul>
+					<button class="navigation-button">price &gt;&gt;</button>
+				</div>
+				<div class="back-side center">
+					<button class="navigation-button">&lt;&lt;back</button>
+					<h3 class="tour-price">  $599</h3>
+					<button class="card-button">Booking</button>
+					
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="stories">
+		<div class="video-container">
+		<br><video class="bg-video" autoplay muted loop>
+		<source src="video.mp4" type="video/mp4"/></video>
+		</div>
+		<div class="stories-wrapper">
+			<div class="story-bg">
+				<div class="story">
+					<img src="girl.jpg" alt="customer image" class="story-image"/>
+					<div class="story-text">
+						<h1 class="story-heading">These were the best days of this year!</h1><br>
+						<p class="story-para"> I enjoyed it so much that I would definitely visit it again especially with the team. <br>These energetic people showed professionalism and were helpful and attending <br>to our needs and requests in no time. <br>Very organized and sociable. Keep it up.</p>
+					</div>
+				</div>
+			</div>
+			<div class="story-bg">
+				<div class="story">
+					<img src="boy.jpg" alt="customer image" class="story-image"/>
+					<div class="story-text">
+						<h1 class="story-heading">I enjoyed this great tour!</h1><br>
+						<p class="story-para"> I visited this amazing country with a group of friends. Our stay was royal.<br> The team is professional and attentive to the tiniest details.<br> Our guides were very knowledgeable and flexible.<br> The itinerary was personalized to make every moment unique and enjoyable. <br>I'm definitely coming back to discover more regions.</p>
+					</div>
+				</div>
+			</div>
+		</div>	
+	</section>
+	<section class="contact">
+	<br><br><br><br><h1 class="contact-head">Contact Us</h1>
+	<form class="contact-form center">
+		<div class="input-group">
+			<label>full name*</label>
+			<input type="text" class="contact-input" placeholder="enter your name">	
+		</div>
+		<div class="input-groups">
+		<div class="input-group">
+			<label>Email*</label>
+			<input type="email" class="contact-input" placeholder="enter your email">	
+		</div>
+		<div class="input-group">
+			<label>Phone</label>
+			<input type="text" class="contact-input" placeholder="enter phone no.">	
+		</div>
+		</div>
+		<div class="input-group">
+			<label>Message*</label>
+			<textarea class="form-textarea" placeholder="Your message here...."></textarea>	
+		</div><br><br>
+		<input type="submit" value="submit" class="form-btn">
+	</form>
+	</section>
+	<footer class="footer">
+	<div class="footer-list">
+		<a href="a" class="footer-link">Home</a>
+		<a href="a" class="footer-link">Tours</a>
+		<a href="a" class="footer-link">About us</a>
+		<a href="a" class="footer-link">Offers</a>
+		<a href="a" class="footer-link">Contact</a>
+	</div>
+	<p class="footer-paragraph">Copyright &copy,CodeAndCreate All Rights Reserved</p>	
+	</footer>
+</div>
+</body>
+<script>
+	Array.from(document.querySelectorAll(".navigation-button")).forEach(item=>{item.onclick=()=>{item.parentElement.parentElement.classList.toggle("change");};});
+</script>
+</html>
